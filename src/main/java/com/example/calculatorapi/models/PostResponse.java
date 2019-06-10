@@ -1,3 +1,8 @@
+/**
+ * Post Response Class that maps the arithmetic calculation response back to the client
+ * @author Nihinlolamiwa Fajemilehin
+ */
+
 package com.example.calculatorapi.models;
 
 public class PostResponse {

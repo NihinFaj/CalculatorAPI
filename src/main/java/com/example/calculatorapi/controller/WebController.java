@@ -1,3 +1,8 @@
+/**
+ * The web controller class that houses the WEB API logic 
+ * @author Nihinlolamiwa Fajemilehin
+ */
+
 package com.example.calculatorapi.controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,8 +16,8 @@ import com.example.calculatorapi.models.PostResponse;
 public class WebController {
 	
 	/**
-	 * The Calculate Controller that takes in two operands and an operator, performs the calculation 
-	 * and returns the response back to the client
+	 * The Calculator Function that takes a PostRequest object, and performs the calculation 
+	 * and returns the response back to the client as a PostResponse object
 	 * @param inputPayload
 	 * @return The result of the arithmetic calculation result
 	 */
@@ -20,31 +25,37 @@ public class WebController {
 	public PostResponse Calculator(@RequestBody PostRequest inputPayload) {
 		PostResponse response = new PostResponse();
 		long result;
-
-		if(inputPayload.getOperator().equals("+")) {
-			result = Integer.parseInt(inputPayload.getFirstValue()) + Integer.parseInt(inputPayload.getSecondValue());
-			response.setId(200);
-			response.setMessage(Long.toString(result));
+		try {
+			if(inputPayload.getOperator().equals("+")) {
+				result = Integer.parseInt(inputPayload.getFirstValue()) + Integer.parseInt(inputPayload.getSecondValue());
+				response.setId(200);
+				response.setMessage(Long.toString(result));
+			}
+			else if(inputPayload.getOperator().equals("-")) {
+				result = Integer.parseInt(inputPayload.getFirstValue()) - Integer.parseInt(inputPayload.getSecondValue());
+				response.setId(200);
+				response.setMessage(Long.toString(result));
+			}
+			else if(inputPayload.getOperator().equals("÷")) {
+				result = Integer.parseInt(inputPayload.getFirstValue()) / Integer.parseInt(inputPayload.getSecondValue());
+				response.setId(200);
+				response.setMessage(Long.toString(result));
+			}
+			else if(inputPayload.getOperator().equals("x")) {
+				result = Integer.parseInt(inputPayload.getFirstValue()) * Integer.parseInt(inputPayload.getSecondValue());
+				response.setId(200);
+				response.setMessage(Long.toString(result));
+			}
+			else {
+				result = 0;
+				response.setId(999);
+				response.setMessage("Operator passsed in not valid");
+			}
 		}
-		else if(inputPayload.getOperator().equals("-")) {
-			result = Integer.parseInt(inputPayload.getFirstValue()) - Integer.parseInt(inputPayload.getSecondValue());
-			response.setId(200);
-			response.setMessage(Long.toString(result));
-		}
-		else if(inputPayload.getOperator().equals("÷")) {
-			result = Integer.parseInt(inputPayload.getFirstValue()) / Integer.parseInt(inputPayload.getSecondValue());
-			response.setId(200);
-			response.setMessage(Long.toString(result));
-		}
-		else if(inputPayload.getOperator().equals("x")) {
-			result = Integer.parseInt(inputPayload.getFirstValue()) * Integer.parseInt(inputPayload.getSecondValue());
-			response.setId(200);
-			response.setMessage(Long.toString(result));
-		}
-		else {
-			result = 0;
-			response.setId(999);
-			response.setMessage("Operator passsed in not valid");
+		catch(Exception ex) {
+			ex.getStackTrace();
+			response.setId(404);
+			response.setMessage("Fatal error occured!");
 		}
 		return response;
 	}
