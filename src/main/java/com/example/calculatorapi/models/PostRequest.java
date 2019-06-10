@@ -56,5 +56,4 @@ public class PostRequest {
 	public void setSecondValue(String secondValue) {
 		this.secondValue = secondValue;
 	}
-
 }

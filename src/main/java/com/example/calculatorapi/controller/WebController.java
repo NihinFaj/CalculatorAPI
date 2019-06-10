@@ -4,12 +4,10 @@
  */
 
 package com.example.calculatorapi.controller;
-
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.calculatorapi.models.PostRequest;
 import com.example.calculatorapi.models.SquareRootRequest;
 import com.example.calculatorapi.models.PostResponse;
@@ -22,8 +20,8 @@ public class WebController {
 	 * calculation and returns the response back to the client as a PostResponse
 	 * object
 	 * 
-	 * @param inputPayload
-	 * @return The result of the arithmetic calculation result
+	 * @param inputPayload The PostRequest object received from the client
+	 * @return The result of the arithmetic calculation
 	 */
 	@RequestMapping(value = "/calculate", method = RequestMethod.POST)
 	public PostResponse Calculator(@RequestBody PostRequest inputPayload) {
@@ -68,16 +66,14 @@ public class WebController {
 	 * calculation and returns the response back to the client as a PostResponse
 	 * object
 	 * 
-	 * @param inputPayload
-	 * @return
+	 * @param inputPayload The SquareRootRequest object received from the client
+	 * @return The result of the square root calculation
 	 */
 	@RequestMapping(value = "/squareroot", method = RequestMethod.POST)
 	public PostResponse SquareRoot(@RequestBody SquareRootRequest inputPayload) {
 		PostResponse response = new PostResponse();
-
 		try {
-			double squareRootValue = Math.sqrt(Double.parseDouble(inputPayload.getOperand()));
-
+			double squareRootValue = Math.sqrt(Double.parseDouble(inputPayload.getSquareRootOperand()));
 			response.setId(200);
 			response.setMessage(Double.toString(squareRootValue));
 		} catch (Exception ex) {

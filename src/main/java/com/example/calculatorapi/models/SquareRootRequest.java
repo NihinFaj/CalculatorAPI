@@ -13,15 +13,15 @@ public class SquareRootRequest {
 	 * Function that returns the squareroot operand
 	 * @return The squareroot operand
 	 */
-	public String getOperand() {
+	public String getSquareRootOperand() {
 		return squareRootOperand;
 	}
 
 	/**
 	 * Function that sets the squareroot operand
-	 * @param operator
+	 * @param squareRootOperand
 	 */
-	public void setOperator(String operator) {
-		this.squareRootOperand = operator;
+	public void setSquareRootOperand(String squareRootOperand) {
+		this.squareRootOperand = squareRootOperand;
 	}
 }
