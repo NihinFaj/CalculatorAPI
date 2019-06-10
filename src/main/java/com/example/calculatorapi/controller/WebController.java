@@ -55,7 +55,7 @@ public class WebController {
 			}
 		} catch (Exception ex) {
 			ex.getStackTrace();
-			response.setId(404);
+			response.setId(401);
 			response.setMessage("Fatal error occured!");
 		}
 		return response;
@@ -78,7 +78,7 @@ public class WebController {
 			response.setMessage(Double.toString(squareRootValue));
 		} catch (Exception ex) {
 			ex.getStackTrace();
-			response.setId(404);
+			response.setId(401);
 			response.setMessage("Fatal error occured!");
 		}
 		return response;
