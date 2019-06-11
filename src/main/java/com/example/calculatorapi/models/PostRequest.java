@@ -20,7 +20,7 @@ public class PostRequest {
 	
 	/**
 	 * Function that returns the first arithmetic operand
-	 * @returnThe The first arithmetic operand
+	 * @return The The first arithmetic operand
 	 */
 	public String getFirstValue() {
 		return firstValue;
@@ -28,7 +28,7 @@ public class PostRequest {
 	
 	/**
 	 * Function that returns the second arithmetic operand
-	 * @returnThe The second arithmetic operand
+	 * @return The The second arithmetic operand
 	 */
 	public String getSecondValue() {
 		return secondValue;

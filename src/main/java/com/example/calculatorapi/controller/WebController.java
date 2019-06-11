@@ -51,12 +51,12 @@ public class WebController {
 			} else {
 				result = 0;
 				response.setId(999);
-				response.setMessage("Operator passsed in not valid");
+				response.setError("Operator passsed in not valid");
 			}
 		} catch (Exception ex) {
 			ex.getStackTrace();
 			response.setId(401);
-			response.setMessage("Fatal error occured!");
+			response.setError("Fatal error occured!");
 		}
 		return response;
 	}
@@ -79,7 +79,7 @@ public class WebController {
 		} catch (Exception ex) {
 			ex.getStackTrace();
 			response.setId(401);
-			response.setMessage("Fatal error occured!");
+			response.setError("Fatal error occured!");
 		}
 		return response;
 	}
