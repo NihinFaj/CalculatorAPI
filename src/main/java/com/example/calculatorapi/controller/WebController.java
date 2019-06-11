@@ -26,28 +26,28 @@ public class WebController {
 	@RequestMapping(value = "/calculate", method = RequestMethod.POST)
 	public PostResponse Calculator(@RequestBody PostRequest inputPayload) {
 		PostResponse response = new PostResponse();
-		int result;
+		double result;
 		try {
 			if (inputPayload.getOperator().equals("+")) {
-				result = Integer.parseInt(inputPayload.getFirstValue())
-						+ Integer.parseInt(inputPayload.getSecondValue());
+				result = Double.parseDouble(inputPayload.getFirstValue())
+						+ Double.parseDouble(inputPayload.getSecondValue());
 				response.setId(200);
-				response.setMessage(Integer.toString(result));
+				response.setMessage(Double.toString(result));
 			} else if (inputPayload.getOperator().equals("-")) {
-				result = Integer.parseInt(inputPayload.getFirstValue())
-						- Integer.parseInt(inputPayload.getSecondValue());
+				result = Double.parseDouble(inputPayload.getFirstValue())
+						- Double.parseDouble(inputPayload.getSecondValue());
 				response.setId(200);
-				response.setMessage(Integer.toString(result));
+				response.setMessage(Double.toString(result));
 			} else if (inputPayload.getOperator().equals("÷")) {
-				result = Integer.parseInt(inputPayload.getFirstValue())
-						/ Integer.parseInt(inputPayload.getSecondValue());
+				result = Double.parseDouble(inputPayload.getFirstValue())
+						/ Double.parseDouble(inputPayload.getSecondValue());
 				response.setId(200);
-				response.setMessage(Integer.toString(result));
+				response.setMessage(Double.toString(result));
 			} else if (inputPayload.getOperator().equals("x")) {
-				result = Integer.parseInt(inputPayload.getFirstValue())
-						* Integer.parseInt(inputPayload.getSecondValue());
+				result = Double.parseDouble(inputPayload.getFirstValue())
+						* Double.parseDouble(inputPayload.getSecondValue());
 				response.setId(200);
-				response.setMessage(Integer.toString(result));
+				response.setMessage(Double.toString(result));
 			} else {
 				result = 0;
 				response.setId(999);
